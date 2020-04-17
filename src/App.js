@@ -1,12 +1,12 @@
-import { reducer as voxeetReducer } from '@voxeet/react-components';
 import React from 'react'
 import thunkMidleware from 'redux-thunk'
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 
-import { ConferenceRoom, VoxeetProvider } from '@voxeet/react-components'
-
-// Import Style
-import '@voxeet/react-components/dist/voxeet-react-components.css';
+import {
+  ConferenceRoom,
+  VoxeetProvider,
+  reducer as voxeetReducer
+} from "./app/VoxeetReactComponents";
 
 const reducers = combineReducers({
   voxeet: voxeetReducer
@@ -20,7 +20,7 @@ const configureStore = () => createStore(
 const settings = {
   consumerKey: '',
   consumerSecret: '',
-  conferenceAlias: 'Sample'
+  conferenceAlias: 'Alias String'
 }
 
 function App() {
