@@ -6,8 +6,12 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 import {
   ConferenceRoom,
   VoxeetProvider,
-  reducer as voxeetReducer
-} from "./VoxeetReactComponents";
+  reducer as voxeetReducer,
+} from "@voxeet/react-components";
+
+// Import Style
+// import "@voxeet/react-components/dist/voxeet-react-components.css"; // Can you be customize, refer to https://github.com/voxeet/voxeet-assets-react-components
+
 
 const reducers = combineReducers({
   voxeet: voxeetReducer
@@ -23,11 +27,10 @@ window.addEventListener("storage", function(e) {
 const conferenceId = window.conferenceId;
 
 const settings = {
-  consumerKey: "CONSUMER_KEY",
-  consumerSecret: "CONSUMER_SECRET",
-  conferenceAlias: "conference_name"
-};
-
+  consumerKey: 'OXU1ajVpOTI0dWpoZw==',
+  consumerSecret: 'N21sNGt0cXVyaXVvdWx2cms4amhpNnNqaDc=',
+  conferenceAlias: 'Alias String'
+}
 const handleOnConnect = () => {
   console.log("Participant connecting");
 };
@@ -48,21 +51,12 @@ var videoRatio = {
 
 ReactDOM.render(
   <VoxeetProvider store={configureStore()}>
-    <div>
-      <ConferenceRoom
-        isWidget={false}
-        autoJoin
-        videoRatio={videoRatio}
-        kickOnHangUp
-        handleOnLeave={handleOnLeave}
-        handleOnConnect={handleOnConnect}
-        constraints={constraints}
-        consumerKey={settings.consumerKey}
-        consumerSecret={settings.consumerSecret}
-        conferenceAlias={settings.conferenceAlias}
-        videoCodec={"H264"}
-      />
-    </div>
+    <ConferenceRoom
+      autoJoin
+      consumerKey={settings.consumerKey}
+      consumerSecret={settings.consumerSecret}
+      conferenceAlias={settings.conferenceAlias}
+    />
   </VoxeetProvider>,
   document.getElementById("app")
 );
