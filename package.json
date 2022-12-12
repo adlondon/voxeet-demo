@@ -16,7 +16,7 @@
     "browserslist": "^4.5.2",
     "classnames": "2.2.6",
     "css-element-queries": "1.1.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "immutable": "3.8.2",
     "js-cookie": "^2.2.0",
     "prettier": "^1.18.2",
